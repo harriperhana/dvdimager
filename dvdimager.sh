@@ -25,6 +25,8 @@ parameters+=("bs=$(echo "$isoinfo" | grep -Po '\bLogical block size is: \K([0-9]
 parameters+=("count=$(echo "$isoinfo" | grep -Po '\bVolume size is: \K([0-9]+)\b')")
 parameters+=("status=progress")
 
+echo "${parameters[@]}"
+
 dd "${parameters[@]}"
 
 eject "/dev/$dev"
